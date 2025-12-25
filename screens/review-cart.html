@@ -1,0 +1,43 @@
+<!-- Review Cart Screen -->
+<div class="min-h-screen bg-gray-50 flex flex-col">
+    <!-- Header -->
+    <div class="bg-white border-b border-gray-200">
+        <div class="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
+            <button onclick="App.navigateTo('retail-items')" class="text-gray-600 hover:text-gray-800">
+                ← Back
+            </button>
+            <span class="text-lg font-semibold text-blue-600">Soda Laundry</span>
+            <div class="w-6"></div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 px-6 py-6 overflow-y-auto">
+        <!-- Title -->
+        <div class="mb-6">
+            <h1 class="text-2xl font-bold text-gray-900">Review Your Order</h1>
+        </div>
+
+        <!-- Cart Items -->
+        <div id="cart-items" class="space-y-6 mb-6">
+            <div class="flex items-center justify-center h-32">
+                <div class="spinner"></div>
+            </div>
+        </div>
+
+        <!-- Total -->
+        <div class="bg-white rounded-xl shadow-sm p-4 mb-4">
+            <div class="flex items-center justify-between">
+                <span class="text-lg font-semibold text-gray-900">Total</span>
+                <span id="cart-total" class="text-2xl font-bold text-blue-600">$0.00</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Button -->
+    <div class="bg-white border-t border-gray-200 p-6">
+        <button id="payment-btn" class="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold text-lg">
+            Proceed to Payment
+        </button>
+    </div>
+</div>

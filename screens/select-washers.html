@@ -1,0 +1,37 @@
+<!-- Select Washers Screen -->
+<div class="min-h-screen bg-gray-50 flex flex-col">
+    <!-- Header -->
+    <div class="bg-white border-b border-gray-200">
+        <div class="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
+            <button onclick="App.navigateTo('select-machine-type')" class="text-gray-600 hover:text-gray-800">
+                ← Back
+            </button>
+            <span class="text-lg font-semibold text-blue-600">Soda Laundry</span>
+            <div class="w-6"></div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 px-6 py-6 flex flex-col">
+        <!-- Title -->
+        <div class="mb-6">
+            <h1 class="text-2xl font-bold text-gray-900 mb-4">Select Washers</h1>
+            <label class="flex items-center gap-2">
+                <input type="checkbox" id="show-busy-toggle">
+                <span class="text-sm">Show busy machines</span>
+            </label>
+        </div>
+
+        <!-- Washers List -->
+        <div id="washers-list" class="flex-1 overflow-y-auto space-y-4">
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <!-- Bottom Button -->
+    <div class="bg-white border-t p-6">
+        <button id="continue-btn" disabled class="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold disabled:bg-gray-300">
+            Continue with <span id="washer-count">0</span> washer(s)
+        </button>
+    </div>
+</div>

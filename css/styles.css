@@ -1,0 +1,124 @@
+/* Custom styles for Soda Laundry */
+
+/* Smooth transitions */
+.screen-transition {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Machine card styles */
+.machine-card {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.machine-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.machine-card.selected {
+    border-color: #4F6FED;
+    background-color: #EFF6FF;
+}
+
+.machine-card.busy {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.machine-card.busy:hover {
+    transform: none;
+}
+
+/* Status badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-available {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.status-in-use {
+    background-color: #FED7AA;
+    color: #9A3412;
+}
+
+.status-complete {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+}
+
+/* Accordion animation */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.open {
+    max-height: 1000px;
+    transition: max-height 0.5s ease-in;
+}
+
+/* Button animations */
+button {
+    transition: all 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Custom number input (remove arrows) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Loading spinner */
+.spinner {
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #4F6FED;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

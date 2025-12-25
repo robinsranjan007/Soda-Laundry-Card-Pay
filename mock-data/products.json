@@ -1,0 +1,67 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Tide Detergent",
+      "description": "4 Oz",
+      "price": 400,
+      "image": "tide.png"
+    },
+    {
+      "id": 2,
+      "name": "Downy",
+      "description": "4 Oz",
+      "price": 200,
+      "image": "downy.png"
+    },
+    {
+      "id": 3,
+      "name": "Clorox",
+      "description": "4 Oz",
+      "price": 300,
+      "image": "clorox.png"
+    },
+    {
+      "id": 4,
+      "name": "Dryer Sheet",
+      "description": "Single use",
+      "price": 200,
+      "image": "dryer-sheet.png"
+    },
+    {
+      "id": 5,
+      "name": "Laundry Bags",
+      "description": "Pack of 5",
+      "price": 1000,
+      "image": "laundry-bag.png"
+    },
+    {
+      "id": 6,
+      "name": "Laundry Bag Large with strap",
+      "description": "Extra Large",
+      "price": 1500,
+      "image": "laundry-bag-large.png"
+    },
+    {
+      "id": 7,
+      "name": "Laundry Bag XL with strap",
+      "description": "Extra Extra Large",
+      "price": 1800,
+      "image": "laundry-bag-xl.png"
+    },
+    {
+      "id": 8,
+      "name": "Oxi-Clean Detergent",
+      "description": "Laundry bag",
+      "price": 1100,
+      "image": "oxiclean.png"
+    },
+    {
+      "id": 9,
+      "name": "Garment bag",
+      "description": "10 x 1",
+      "price": 2300,
+      "image": "garment-bag.png"
+    }
+  ]
+}
