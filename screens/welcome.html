@@ -1,32 +1,34 @@
 <!-- Welcome Screen (A) -->
-<div class="min-h-screen bg-gray-50 flex flex-col">
+<div class="min-h-screen bg-white flex flex-col">
     <!-- Header -->
     <div class="bg-white border-b border-gray-200">
-        <div class="max-w-md mx-auto px-4 py-4 flex items-center justify-center">
+        <div class="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
+           <button onclick="window.history.back()" class="hover:opacity-70">
+    <img src="assets/Arrow.svg" alt="Back" class="w-6 h-6">
+</button>
             <div class="flex items-center gap-2">
-                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                </svg>
-                <span class="text-lg font-semibold text-blue-600">Soda Laundry</span>
+                <img src="assets/logo.svg" alt="Soda Laundry" class="h-6">
+                <span class="text-lg font-semibold" style="color: #3B5998;">Soda Laundry</span>
             </div>
+            <div class="w-6"></div>
         </div>
     </div>
 
     <!-- Content -->
-    <div class="flex-1 px-6 py-8">
+    <div class="flex-1 px-6 py-8 bg-gray-50">
         <!-- Welcome Message -->
         <div class="mb-8">
-            <h1 class="text-2xl font-bold text-gray-900 mb-2">
-                Welcome! 👋
+            <h1 class="text-2xl font-bold mb-2" style="color: #36373B;">
+                Welcome, Ingredia Nutrisha 👋
             </h1>
-            <p class="text-gray-500 text-sm">
+            <p class="text-sm" style="color: #A6A8AE;">
                 Your clean clothes are ready now
             </p>
         </div>
 
         <!-- How Card Payment Works Card -->
         <div class="bg-white rounded-2xl shadow-sm p-6 mb-8">
-            <h2 class="text-lg font-bold text-gray-900 mb-6">
+            <h2 class="text-lg font-bold mb-6" style="color: #36373B;">
                 How Card Payment Works
             </h2>
 
@@ -34,40 +36,44 @@
             <div class="space-y-4">
                 <!-- Step 1 -->
                 <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold text-sm">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm text-white" 
+                         style="background: linear-gradient(225.74deg, #2347B0 21.35%, #8EB6DC 181.79%);">
                         1
                     </div>
-                    <p class="text-gray-700 pt-1">
+                    <p class="pt-1" style="color: #36373B;">
                         Select your washers or dryers
                     </p>
                 </div>
 
                 <!-- Step 2 -->
                 <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold text-sm">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm text-white" 
+                         style="background: linear-gradient(225.74deg, #2347B0 21.35%, #8EB6DC 181.79%);">
                         2
                     </div>
-                    <p class="text-gray-700 pt-1">
+                    <p class="pt-1" style="color: #36373B;">
                         Choose your cycle and settings
                     </p>
                 </div>
 
                 <!-- Step 3 -->
                 <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold text-sm">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm text-white" 
+                         style="background: linear-gradient(225.74deg, #2347B0 21.35%, #8EB6DC 181.79%);">
                         3
                     </div>
-                    <p class="text-gray-700 pt-1">
+                    <p class="pt-1" style="color: #36373B;">
                         Pay with your card or mobile wallet
                     </p>
                 </div>
 
                 <!-- Step 4 -->
                 <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold text-sm">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm text-white" 
+                         style="background: linear-gradient(225.74deg, #2347B0 21.35%, #8EB6DC 181.79%);">
                         4
                     </div>
-                    <p class="text-gray-700 pt-1">
+                    <p class="pt-1" style="color: #36373B;">
                         Press START on your machine to begin
                     </p>
                 </div>
@@ -79,7 +85,8 @@
     <div class="bg-white border-t border-gray-200 p-6">
         <button 
             id="start-btn"
-            class="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95">
+            class="w-full text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95"
+            style="background: linear-gradient(225.74deg, #2347B0 21.35%, #8EB6DC 181.79%);">
             Start
         </button>
     </div>

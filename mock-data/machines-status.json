@@ -33,10 +33,13 @@
     {
       "soda_id": 24,
       "machine_id": "mac_s24jkl",
-      "statusId": "COMPLETE",
-      "remainingSeconds": 0,
+      "statusId": "IN_USE",
+      "remainingSeconds": 1200,
       "remainingVend": 500,
-      "selectedCycle": {},
+      "selectedCycle": {
+        "id": "cyc_1",
+        "name": "NORMAL"
+      },
       "selectedModifiers": []
     },
     {
@@ -51,22 +54,22 @@
     {
       "soda_id": 42,
       "machine_id": "mac_m42pqr",
-      "statusId": "AVAILABLE",
-      "remainingSeconds": 0,
-      "remainingVend": 850,
-      "selectedCycle": {},
-      "selectedModifiers": []
-    },
-    {
-      "soda_id": 43,
-      "machine_id": "mac_m43stu",
       "statusId": "IN_USE",
-      "remainingSeconds": 1200,
+      "remainingSeconds": 900,
       "remainingVend": 850,
       "selectedCycle": {
         "id": "cyc_1",
         "name": "NORMAL"
       },
+      "selectedModifiers": []
+    },
+    {
+      "soda_id": 43,
+      "machine_id": "mac_m43stu",
+      "statusId": "AVAILABLE",
+      "remainingSeconds": 0,
+      "remainingVend": 850,
+      "selectedCycle": {},
       "selectedModifiers": []
     },
     {
@@ -90,16 +93,19 @@
     {
       "soda_id": 62,
       "machine_id": "mac_l62bcd",
-      "statusId": "AVAILABLE",
-      "remainingSeconds": 0,
+      "statusId": "IN_USE",
+      "remainingSeconds": 1380,
       "remainingVend": 1300,
-      "selectedCycle": {},
+      "selectedCycle": {
+        "id": "cyc_1",
+        "name": "NORMAL"
+      },
       "selectedModifiers": []
     },
     {
       "soda_id": 63,
       "machine_id": "mac_l63efg",
-      "statusId": "COMPLETE",
+      "statusId": "AVAILABLE",
       "remainingSeconds": 0,
       "remainingVend": 1300,
       "selectedCycle": {},
@@ -156,10 +162,13 @@
     {
       "soda_id": 6,
       "machine_id": "mac_d06wxy",
-      "statusId": "COMPLETE",
-      "remainingSeconds": 0,
+      "statusId": "IN_USE",
+      "remainingSeconds": 720,
       "remainingVend": 250,
-      "selectedCycle": {},
+      "selectedCycle": {
+        "id": "cyc_medium",
+        "name": "MEDIUM"
+      },
       "selectedModifiers": []
     },
     {

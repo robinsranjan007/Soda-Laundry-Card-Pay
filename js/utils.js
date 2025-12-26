@@ -62,6 +62,31 @@ const Utils = {
         }
     },
 
+/**
+ * Load header component into a container
+ * @param {string} containerId - ID of container to load header into
+ * @param {Function} backAction - Function to call when back button is clicked
+ */
+async loadHeader(containerId, backAction) {
+    try {
+        const response = await fetch('components/header.html');
+        const html = await response.text();
+        
+        const container = document.getElementById(containerId);
+        if (container) {
+            container.innerHTML = html;
+            
+            // Attach back button handler
+            const backBtn = document.getElementById('back-btn');
+            if (backBtn && backAction) {
+                backBtn.addEventListener('click', backAction);
+            }
+        }
+    } catch (error) {
+        console.error('Error loading header:', error);
+    }
+},
+
     /**
      * Show toast notification
      * @param {string} message - Toast message

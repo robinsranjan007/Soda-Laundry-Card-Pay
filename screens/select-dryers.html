@@ -1,26 +1,34 @@
 <!-- Select Dryers Screen -->
-<div class="min-h-screen bg-gray-50 flex flex-col">
+<div class="min-h-screen bg-white flex flex-col">
     <!-- Header -->
     <div class="bg-white border-b border-gray-200">
         <div class="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
-            <button onclick="App.navigateTo('select-machine-type')" class="text-gray-600 hover:text-gray-800">
-                ← Back
+            <button onclick="App.navigateTo('select-machine-type')" class="hover:opacity-70">
+                <img src="assets/Arrow.svg" alt="Back" class="w-6 h-6">
             </button>
-            <span class="text-lg font-semibold text-blue-600">Soda Laundry</span>
+            <div class="flex items-center gap-2">
+                <img src="assets/logo.png" alt="Soda Laundry" class="h-6">
+                <span class="text-lg font-semibold" style="color: #3B5998;">Soda Laundry</span>
+            </div>
             <div class="w-6"></div>
         </div>
     </div>
 
     <!-- Content -->
-    <div class="flex-1 px-6 py-6 flex flex-col overflow-hidden">
+    <div class="flex-1 px-6 py-6 flex flex-col bg-gray-50">
         <!-- Title & Toggle -->
         <div class="mb-6">
-            <h1 class="text-2xl font-bold text-gray-900 mb-4">Select Dryers</h1>
+            <h1 class="text-2xl font-bold mb-4" style="color: #36373B;">
+                Select Dryers
+            </h1>
             
             <!-- Show Busy Machines Toggle -->
-            <label class="flex items-center gap-2">
-                <input type="checkbox" id="show-busy-toggle">
-                <span class="text-sm">Show busy machines</span>
+            <label class="flex items-center justify-between cursor-pointer">
+                <span class="text-sm font-medium" style="color: #36373B;">Show Busy Machines</span>
+                <div class="relative">
+                    <input type="checkbox" id="show-busy-toggle" class="sr-only peer">
+                    <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                </div>
             </label>
         </div>
 
@@ -34,7 +42,11 @@
 
     <!-- Bottom Button -->
     <div class="bg-white border-t border-gray-200 p-6">
-        <button id="continue-btn" disabled class="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold disabled:bg-gray-300">
+        <button 
+            id="continue-btn"
+            disabled
+            class="w-full text-white py-4 rounded-xl font-semibold text-lg disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-200"
+            style="background: linear-gradient(84.72deg, #2347B0 29.23%, #8EB6DC 130.88%); box-shadow: 0px 4px 6px -4px #0000001A, 0px 10px 15px -3px #0000001A;">
             Continue with <span id="dryer-count">0</span> dryer(s)
         </button>
     </div>

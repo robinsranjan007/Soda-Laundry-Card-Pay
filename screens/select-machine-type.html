@@ -1,41 +1,53 @@
 <!-- Select Machine Type Screen (A2) -->
-<div class="min-h-screen bg-gray-50 flex flex-col">
+<div class="min-h-screen bg-white flex flex-col">
     <!-- Header -->
     <div class="bg-white border-b border-gray-200">
         <div class="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
-            <button onclick="App.navigateTo('welcome')" class="text-gray-600 hover:text-gray-800">
-                ← Back
+            <button onclick="App.navigateTo('welcome')" class="hover:opacity-70">
+                <img src="assets/Arrow.svg" alt="Back" class="w-6 h-6">
             </button>
-            <span class="text-lg font-semibold text-blue-600">Soda Laundry</span>
+            <div class="flex items-center gap-2">
+                <img src="assets/logo.svg" alt="Soda Laundry" class="h-6">
+                <span class="text-lg font-semibold" style="color: #3B5998;">Soda Laundry</span>
+            </div>
             <div class="w-6"></div>
         </div>
     </div>
 
     <!-- Content -->
-    <div class="flex-1 px-6 py-8">
-        <h1 class="text-2xl font-bold text-gray-900 mb-6">Select Machine Type</h1>
+    <div class="flex-1 px-6 py-8 bg-gray-50">
+        <!-- Title -->
+        <div class="mb-6">
+            <h1 class="text-2xl font-bold" style="color: #36373B;">
+                Select Machine Type
+            </h1>
+            <p class="text-sm mt-1" style="color: #A6A8AE;">
+                You didn't scan a machine
+            </p>
+        </div>
 
+        <!-- Machine Type Buttons -->
         <div class="space-y-4">
             <!-- Washer Button -->
-            <button id="select-washer-btn" class="w-full bg-white rounded-xl shadow-md p-6 flex items-center justify-between hover:shadow-lg transition-all border-2 border-transparent hover:border-blue-500">
+            <button id="select-washer-btn" 
+                    class="w-full bg-white rounded-2xl p-5 flex items-center justify-between transition-all border-2 border-gray-200 hover:border-blue-400"
+                    style="box-shadow: 0px 4px 6px -4px #0000001A, 0px 10px 15px -3px #0000001A;">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                        <span class="text-2xl">🧺</span>
-                    </div>
-                    <span class="text-lg font-semibold text-gray-900">Washers</span>
+                    <img src="assets/washer.svg" alt="Washer" class="w-8 h-8">
+                    <span class="text-lg font-semibold" style="color: #36373B;">Washers</span>
                 </div>
-                <span class="text-gray-400">→</span>
+                <img src="assets/Arrow.svg" alt="Go" class="w-6 h-6 transform rotate-180">
             </button>
 
             <!-- Dryer Button -->
-            <button id="select-dryer-btn" class="w-full bg-white rounded-xl shadow-md p-6 flex items-center justify-between hover:shadow-lg transition-all border-2 border-transparent hover:border-blue-500">
+            <button id="select-dryer-btn" 
+                    class="w-full bg-white rounded-2xl p-5 flex items-center justify-between transition-all border-2 border-gray-200 hover:border-blue-400"
+                    style="box-shadow: 0px 4px 6px -4px #0000001A, 0px 10px 15px -3px #0000001A;">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                        <span class="text-2xl">💨</span>
-                    </div>
-                    <span class="text-lg font-semibold text-gray-900">Dryers</span>
+                    <img src="assets/dryer.svg" alt="Dryer" class="w-8 h-8">
+                    <span class="text-lg font-semibold" style="color: #36373B;">Dryers</span>
                 </div>
-                <span class="text-gray-400">→</span>
+                <img src="assets/Arrow.svg" alt="Go" class="w-6 h-6 transform rotate-180">
             </button>
         </div>
     </div>
