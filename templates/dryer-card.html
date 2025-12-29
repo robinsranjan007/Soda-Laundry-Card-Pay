@@ -1,0 +1,27 @@
+<!-- Single dryer card template -->
+<div class="dryer-card rounded-xl p-4 border transition-all" data-dryer-id="">
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-3 flex-1">
+      <!-- Green Dot -->
+      <div class="status-dot w-2 h-2 rounded-full"></div>
+      
+      <!-- Dryer Info -->
+      <div class="flex-1">
+        <div class="flex items-center justify-between mb-1">
+          <h3 class="dryer-title font-semibold" style="color: #36373B;"></h3>
+          <span class="dryer-location text-sm" style="color: #A6A8AE;"></span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span class="status-text text-sm font-medium"></span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Selected Icon -->
+    <div class="selected-icon w-6 h-6 rounded-full hidden items-center justify-center ml-3" style="background-color: #3B5998;">
+      <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+      </svg>
+    </div>
+  </div>
+</div>
