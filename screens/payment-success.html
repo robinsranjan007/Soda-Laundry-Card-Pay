@@ -3,59 +3,82 @@
     <!-- Header -->
     <div class="bg-white border-b border-gray-200">
         <div class="max-w-md mx-auto px-4 py-4 flex items-center justify-center">
-            <span class="text-lg font-semibold text-blue-600">Soda Laundry</span>
+            <div class="flex items-center gap-2">
+                <img src="assets/logo.svg" alt="Soda Laundry" class="h-6">
+                <span class="text-lg font-semibold" style="color: #3B5998;">Soda Laundry</span>
+            </div>
         </div>
     </div>
 
     <!-- Content -->
-    <div class="flex-1 px-6 py-8 flex flex-col items-center">
-        <!-- Success Icon -->
-        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
-            <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-            </svg>
+    <div class="flex-1 px-6 py-8">
+         
+<!-- Success Card with Blue Background -->
+<div class="rounded-2xl p-8 mb-6 text-center" style="background: linear-gradient(135deg, #2347B0 0%, #4F6FED 100%);">
+    <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+        <img src="assets/check.svg" alt="Success" style="width: 85%; height: 85%;">
+    </div>
+    <h1 class="text-2xl font-bold text-white mb-3">Payment Successful!</h1>
+    <div class="flex items-center justify-center gap-2 text-white text-lg">
+        <span>Press START on your machine(s)</span>
+        <div class="w-16 h-16 bg-white bg-opacity-30 rounded-full flex items-center justify-center">
+            <img src="assets/pointer.svg" alt="Pointer" class="w-10 h-10">
+        </div>
+    </div>
+</div>
+
+        <!-- Next Steps Header -->
+        <div class="mb-4">
+            <h3 class="font-semibold text-lg inline-block px-4 py-2 rounded-lg" style="background-color: #E8F5FF; color: #3B5998;">
+                Next Steps
+            </h3>
         </div>
 
-        <h1 class="text-2xl font-bold text-gray-900 mb-2">Payment Successful!</h1>
-        <p class="text-gray-500 text-center mb-8">Your order has been confirmed</p>
-
-        <!-- Order Summary -->
-        <div class="w-full bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="font-semibold text-gray-900 mb-4">Order Summary</h3>
-            <div id="order-summary" class="space-y-3">
-                <!-- Order items will be loaded here -->
-            </div>
-            <div class="mt-4 pt-4 border-t border-gray-200">
-                <div class="flex items-center justify-between">
-                    <span class="font-semibold text-gray-900">Total Paid</span>
-                    <span id="total-paid" class="text-xl font-bold text-green-600">$0.00</span>
+        <!-- Next Steps Section -->
+        <div class="bg-white rounded-xl shadow-sm p-5 mb-4">
+            <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: #FF9500;">
+                    <span class="text-white font-bold text-lg">2</span>
+                </div>
+                <div class="flex-1">
+                    <h4 class="font-semibold mb-2" style="color: #36373B;">Pick up your retail items</h4>
+                    <div id="retail-items-pickup" class="text-sm space-y-1" style="color: #6B7280;">
+                        <!-- Retail items will be listed here -->
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Instructions -->
-        <div class="w-full bg-blue-50 rounded-xl p-6 mb-6">
-            <h3 class="font-semibold text-blue-900 mb-3">Next Steps:</h3>
-            <ol class="space-y-2 text-sm text-blue-800">
-                <li class="flex items-start gap-2">
-                    <span class="font-bold">1.</span>
-                    <span>Press the <strong>START</strong> button on your machine(s)</span>
-                </li>
-                <li class="flex items-start gap-2">
-                    <span class="font-bold">2.</span>
-                    <span>Collect your retail items from the attendant</span>
-                </li>
-                <li class="flex items-start gap-2">
-                    <span class="font-bold">3.</span>
-                    <span>Your machine will start automatically!</span>
-                </li>
-            </ol>
+        <!-- Your Machines Section -->
+        <div class="bg-white rounded-xl shadow-sm p-5 mb-4">
+            <h3 class="font-semibold mb-3" style="color: #3B5998;">Your Machines</h3>
+            <div id="machines-list" class="space-y-2">
+                <!-- Machines will be listed here -->
+            </div>
+        </div>
+
+        <!-- Estimated Finish Time Section -->
+        <div class="bg-white rounded-xl shadow-sm p-5 mb-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: #E8F5FF;">
+                    <svg class="w-5 h-5" style="color: #3B5998;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-medium text-sm" style="color: #36373B;">Estimated finish time</h4>
+                    <p id="finish-time" class="text-sm font-semibold" style="color: #3B5998;">3:32 PM (30 minutes)</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Bottom Button -->
     <div class="bg-white border-t border-gray-200 p-6">
-        <button id="new-transaction-btn" class="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold">
+        <button 
+            id="new-transaction-btn" 
+            class="w-full text-white py-4 rounded-xl font-semibold text-lg transition-all"
+            style="background: linear-gradient(84.72deg, #2347B0 29.23%, #8EB6DC 130.88%); box-shadow: 0px 4px 6px -4px #0000001A, 0px 10px 15px -3px #0000001A;">
             Start New Transaction
         </button>
     </div>

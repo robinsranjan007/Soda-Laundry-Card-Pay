@@ -66,6 +66,14 @@ const DryersScreen = {
         });
 
         dryersList.innerHTML = html;
+         dryersList.querySelectorAll('.dryer-card').forEach(card => {
+        const dryerId = parseInt(card.getAttribute('data-dryer-id'));
+        const isBusy = card.classList.contains('cursor-not-allowed');
+        
+        if (!isBusy) {
+            card.addEventListener('click', () => this.toggleSelection(dryerId));
+        }
+    });
     },
 
     createDryerCard(dryer, selectedDryers) {
@@ -126,10 +134,7 @@ const DryersScreen = {
             card.querySelector('.selected-icon').classList.add('flex');
         }
 
-        // Add click handler
-        if (isAvailable) {
-            card.addEventListener('click', () => this.toggleSelection(dryer.soda_id));
-        }
+       
 
         return card.outerHTML;
     },

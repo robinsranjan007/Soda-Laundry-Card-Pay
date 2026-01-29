@@ -1,6 +1,6 @@
 <!-- Single product item template -->
-<div class="product-item bg-white rounded-lg p-4 flex items-center justify-between" data-product-id="">
-    <div class="flex-1">
+<div class="product-item bg-white rounded-lg p-4 flex items-center justify-between shadow-sm" data-product-id="">
+    <div>
         <h4 class="product-name font-medium text-gray-900"></h4>
         <p class="product-price text-sm font-semibold text-blue-600"></p>
     </div>
@@ -11,12 +11,12 @@
     </button>
     
     <!-- Quantity controls (shown when quantity > 0) -->
-    <div class="quantity-controls hidden flex items-center gap-3">
-        <button class="decrease-btn w-8 h-8 flex items-center justify-center text-gray-600 font-bold hover:bg-gray-100 rounded border">
+    <div class="quantity-controls hidden items-center gap-3">
+        <button class="decrease-btn w-8 h-8 flex items-center justify-center text-gray-600 font-bold hover:bg-gray-100 rounded">
             −
         </button>
         <span class="quantity font-semibold text-gray-900 w-6 text-center">0</span>
-        <button class="increase-btn w-8 h-8 flex items-center justify-center text-gray-600 font-bold hover:bg-gray-100 rounded border">
+        <button class="increase-btn w-8 h-8 flex items-center justify-center text-gray-600 font-bold hover:bg-gray-100 rounded">
             +
         </button>
     </div>

@@ -22,68 +22,68 @@ const RetailItemsScreen = {
     },
 
     renderProducts(products, selectedProducts) {
-        const productsGrid = document.getElementById('products-grid');
-        if (!productsGrid) return;
+    const productsGrid = document.getElementById('products-grid');
+    if (!productsGrid) return;
 
-        // Group products by category
-        const washerDetergent = products.filter((p) => p.id <= 3);
-        const dryerItems = products.filter((p) => p.id === 4);
-        const laundryBags = products.filter((p) => p.id >= 5);
+    // Group products by category
+    const washerDetergent = products.filter((p) => p.id <= 3);
+    const dryerItems = products.filter((p) => p.id === 4);
+    const laundryBags = products.filter((p) => p.id >= 5);
 
-        let html = '<div class="space-y-6">';
+    let html = '<div class="space-y-6">';
 
-        // Washer Detergent Section
-        if (washerDetergent.length > 0) {
-            html += `
-                <div>
-                    <h3 class="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mb-3">
-                        Washer Detergent
-                    </h3>
-                    <div class="space-y-2">
-                        ${this.renderProductItems(washerDetergent, selectedProducts)}
-                    </div>
-                </div>
-            `;
-        }
-
-        // Dryer Sheet Section
-        if (dryerItems.length > 0) {
-            html += `
-                <div>
-                    <h3 class="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mb-3">
-                        Dryer Sheet
-                    </h3>
-                    <div class="space-y-2">
-                        ${this.renderProductItems(dryerItems, selectedProducts)}
-                    </div>
-                </div>
-            `;
-        }
-
-        // Laundry Bags Section
-        if (laundryBags.length > 0) {
-            html += `
-                <div>
-                    <h3 class="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mb-3">
-                        Laundry Bags
-                    </h3>
-                    <div class="space-y-2">
-                        ${this.renderProductItems(laundryBags, selectedProducts)}
-                    </div>
-                </div>
-            `;
-        }
-
-        // Footer note
+    // Washer Detergent Section
+    if (washerDetergent.length > 0) {
         html += `
-            <div class="text-center text-sm text-gray-500 mt-8 pb-4">
-                Items will be handed to you by our on-site attendant!
+            <div>
+                <h3 class="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mb-3 inline-block">
+                    Washer Detergent
+                </h3>
+                <div class="space-y-2">
+                    ${this.renderProductItems(washerDetergent, selectedProducts)}
+                </div>
             </div>
         `;
+    }
 
-        html += '</div>';
-        productsGrid.innerHTML = html;
-    },
+    // Dryer Sheet Section
+    if (dryerItems.length > 0) {
+        html += `
+            <div>
+                <h3 class="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mb-3 inline-block">
+                    Dryer Sheet
+                </h3>
+                <div class="space-y-2">
+                    ${this.renderProductItems(dryerItems, selectedProducts)}
+                </div>
+            </div>
+        `;
+    }
+
+    // Laundry Bags Section
+    if (laundryBags.length > 0) {
+        html += `
+            <div>
+                <h3 class="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mb-3 inline-block">
+                    Laundry Bags
+                </h3>
+                <div class="space-y-2">
+                    ${this.renderProductItems(laundryBags, selectedProducts)}
+                </div>
+            </div>
+        `;
+    }
+
+    // Footer note
+    html += `
+        <div class="text-center text-sm text-gray-500 mt-8 pb-4">
+            Items will be handed to you by our on-site attendant!
+        </div>
+    `;
+
+    html += '</div>';
+    productsGrid.innerHTML = html;
+},
 
     renderProductItems(products, selectedProducts) {
         return products.map(product => {

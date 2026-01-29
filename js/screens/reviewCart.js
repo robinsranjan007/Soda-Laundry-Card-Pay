@@ -27,131 +27,145 @@ const ReviewCartScreen = {
         this.attachEventListeners();
     },
 
-    renderCartSummary(cartSummary) {
-        const cartItems = document.getElementById('cart-items');
-        const cartTotal = document.getElementById('cart-total');
+renderCartSummary(cartSummary) {
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
 
-        if (!cartItems || !cartTotal) return;
+    if (!cartItems || !cartTotal) return;
 
-        let html = '';
-        let machinesTotal = 0;
-        let retailTotal = 0;
+    let html = '';
+    let machinesTotal = 0;
+    let retailTotal = 0;
 
-        // Calculate totals
+    // Calculate totals
+    cartSummary.washers.forEach(washerId => {
+        const cycle = cartSummary.washerCycles[washerId];
+        if (cycle) machinesTotal += cycle.price;
+    });
+
+    cartSummary.dryers.forEach(dryerId => {
+        const cycle = cartSummary.dryerCycles[dryerId];
+        if (cycle) machinesTotal += cycle.price;
+    });
+
+    // Determine section title and edit target
+    let machinesSectionTitle = '';
+    let machinesEditTarget = '';
+
+    if (cartSummary.washers.length > 0 && cartSummary.dryers.length === 0) {
+        machinesSectionTitle = 'Washers';
+        machinesEditTarget = 'select-washers';
+    } else if (cartSummary.dryers.length > 0 && cartSummary.washers.length === 0) {
+        machinesSectionTitle = 'Dryers';
+        machinesEditTarget = 'select-dryers';
+    } else if (cartSummary.washers.length > 0 && cartSummary.dryers.length > 0) {
+        machinesSectionTitle = 'Washers & Dryers';
+        machinesEditTarget = 'select-washers';
+    }
+
+    // Render Machines Section
+    if (cartSummary.washers.length > 0 || cartSummary.dryers.length > 0) {
+        let machinesHTML = '';
+
+        // Add washers
         cartSummary.washers.forEach(washerId => {
             const cycle = cartSummary.washerCycles[washerId];
-            if (cycle) machinesTotal += cycle.price;
+
+            if (cycle) {
+                machinesHTML += this.createMachineItem(
+                    `Washer ${washerId}`,
+                    `${cycle.cycle.name} • ${cycle.temperature.name} • ${cycle.cycle.duration}`,
+                    cycle.price
+                );
+            }
         });
 
+        // Add dryers
         cartSummary.dryers.forEach(dryerId => {
             const cycle = cartSummary.dryerCycles[dryerId];
-            if (cycle) machinesTotal += cycle.price;
+
+            if (cycle) {
+                machinesHTML += this.createMachineItem(
+                    `Dryer ${dryerId}`,
+                    `${cycle.cycle.name} • ${cycle.duration.minutes} min`,
+                    cycle.price
+                );
+            }
         });
 
-        // Determine section title and edit target
-        let machinesSectionTitle = '';
-        let machinesEditTarget = '';
+        html += this.createSection(
+            machinesSectionTitle,
+            machinesEditTarget,
+            machinesHTML,
+            machinesTotal
+        );
+    }
 
-        if (cartSummary.washers.length > 0 && cartSummary.dryers.length === 0) {
-            machinesSectionTitle = 'Washers';
-            machinesEditTarget = 'select-washers';
-        } else if (cartSummary.dryers.length > 0 && cartSummary.washers.length === 0) {
-            machinesSectionTitle = 'Dryers';
-            machinesEditTarget = 'select-dryers';
-        } else if (cartSummary.washers.length > 0 && cartSummary.dryers.length > 0) {
-            machinesSectionTitle = 'Washers & Dryers';
-            machinesEditTarget = 'select-washers';
-        }
+    // Retail Products Section
+    if (cartSummary.products.length > 0) {
+        let productsHTML = '';
 
-        // Render Machines Section
-        if (cartSummary.washers.length > 0 || cartSummary.dryers.length > 0) {
-            let machinesHTML = '';
+        cartSummary.products.forEach(product => {
+            retailTotal += product.price * product.quantity;
 
-            // Add washers
-            cartSummary.washers.forEach(washerId => {
-                const cycle = cartSummary.washerCycles[washerId];
-                const machineInfo = getMachineType(washerId);
-
-                if (cycle && machineInfo) {
-                    machinesHTML += this.createMachineItem(
-                        `Washer ${washerId}`,
-                        `${cycle.cycle.name} • ${cycle.temperature.name} • ${cycle.cycle.duration}`,
-                        cycle.price
-                    );
-                }
-            });
-
-            // Add dryers
-            cartSummary.dryers.forEach(dryerId => {
-                const cycle = cartSummary.dryerCycles[dryerId];
-
-                if (cycle) {
-                    machinesHTML += this.createMachineItem(
-                        `Dryer ${dryerId}`,
-                        `${cycle.cycle.name} • ${cycle.duration.minutes} min`,
-                        cycle.price
-                    );
-                }
-            });
-
-            html += this.createSection(
-                machinesSectionTitle,
-                machinesEditTarget,
-                machinesHTML,
-                machinesTotal
+            productsHTML += this.createMachineItem(
+                product.name,
+                `Qty: ${product.quantity}`,
+                product.price * product.quantity
             );
+        });
+
+        html += this.createSection(
+            'Retail Items',
+            'retail-items',
+            productsHTML,
+            retailTotal
+        );
+    }
+
+    cartItems.innerHTML = html;
+    cartTotal.textContent = Utils.formatPrice(cartSummary.total);
+},
+createMachineItem(title, details, price) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(this.machineItemTemplate, 'text/html');
+    const item = doc.querySelector('.cart-machine-item');
+
+    item.querySelector('.machine-title').textContent = title;
+    item.querySelector('.machine-details').textContent = details;
+    item.querySelector('.machine-price').textContent = Utils.formatPrice(price);
+
+    // Wrap each item in its own white shadow box
+    return `
+        <div class="bg-white rounded-xl p-4 mb-3" style="box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);">
+            ${item.outerHTML}
+        </div>
+    `;
+},
+
+createSection(title, editTarget, itemsHTML, subtotal) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(this.sectionTemplate, 'text/html');
+    const section = doc.querySelector('.cart-section');
+
+    section.querySelector('.section-title').textContent = title;
+    section.querySelector('.edit-btn').setAttribute('data-edit-target', editTarget);
+    section.querySelector('.items-container').innerHTML = itemsHTML;
+    
+    // Update subtotal text based on section
+    const subtotalLabel = section.querySelector('.subtotal-label');
+    if (subtotalLabel) {
+        if (title === 'Retail Items') {
+            subtotalLabel.textContent = 'Retail Subtotal';
+        } else {
+            subtotalLabel.textContent = 'Machine Subtotal';
         }
+    }
+    
+    section.querySelector('.subtotal-amount').textContent = Utils.formatPrice(subtotal);
 
-        // Retail Products Section
-        if (cartSummary.products.length > 0) {
-            let productsHTML = '';
-
-            cartSummary.products.forEach(product => {
-                retailTotal += product.price * product.quantity;
-
-                productsHTML += this.createMachineItem(
-                    product.name,
-                    `Qty: ${product.quantity}`,
-                    product.price * product.quantity
-                );
-            });
-
-            html += this.createSection(
-                'Retail Items',
-                'retail-items',
-                productsHTML,
-                retailTotal
-            );
-        }
-
-        cartItems.innerHTML = html;
-        cartTotal.textContent = Utils.formatPrice(cartSummary.total);
-    },
-
-    createMachineItem(title, details, price) {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(this.machineItemTemplate, 'text/html');
-        const item = doc.querySelector('.cart-machine-item');
-
-        item.querySelector('.machine-title').textContent = title;
-        item.querySelector('.machine-details').textContent = details;
-        item.querySelector('.machine-price').textContent = Utils.formatPrice(price);
-
-        return item.outerHTML;
-    },
-
-    createSection(title, editTarget, itemsHTML, subtotal) {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(this.sectionTemplate, 'text/html');
-        const section = doc.querySelector('.cart-section');
-
-        section.querySelector('.section-title').textContent = title;
-        section.querySelector('.edit-btn').setAttribute('data-edit-target', editTarget);
-        section.querySelector('.items-container').innerHTML = itemsHTML;
-        section.querySelector('.subtotal-amount').textContent = Utils.formatPrice(subtotal);
-
-        return section.outerHTML;
-    },
+    return section.outerHTML;
+},
 
     attachEventListeners() {
         // Edit buttons
